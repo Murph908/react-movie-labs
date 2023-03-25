@@ -15,6 +15,7 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import { MoviesContext } from "../../contexts/moviesContext";
+//import VisibilityIcon from "@mui/icons-material/visibility";
 
 
 export default function MovieCard({ movie, action }) {
@@ -31,6 +32,19 @@ export default function MovieCard({ movie, action }) {
     e.preventDefault();
     addToFavorites(movie);
   };
+
+  /*const { watchlists, addToWatchlists } = useContext(MoviesContext);
+
+  if (watchlists.find((id) => id === movie.id)) {
+    movie.watchlist = true;
+  } else {
+    movie.watchlist = false
+  }
+
+  const handleAddToWatchlist = (e) => {
+    e.preventDefault();
+    addToWatchlists(movie);
+  };*/
 
 
   return (
