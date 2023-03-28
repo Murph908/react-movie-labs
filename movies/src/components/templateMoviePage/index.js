@@ -31,7 +31,7 @@ const TemplateMoviePage = ({ movie, children }) => {
         <Grid item xs={12}>
           {children}
         </Grid>
-        <Grid item xs={8} sx={{ backgroundColor: "#e91e63" }}>
+        <Grid item xs={12}>
           <div sx={{
             display: "flex",
             flexWrap: "wrap",
@@ -52,9 +52,6 @@ const TemplateMoviePage = ({ movie, children }) => {
           </div>
         </Grid>
 
-        <Grid item xs={12}>
-          {children}
-        </Grid>
       </Grid>
     </>
   );

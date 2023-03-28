@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+//import MovieCredits from "../movieCredits"
 
 
 const root = {
@@ -77,6 +78,8 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
+
+      
 
       </>
   );
