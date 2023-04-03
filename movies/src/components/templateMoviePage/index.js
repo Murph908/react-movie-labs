@@ -6,6 +6,8 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { getMovieImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
+import MovieSimilars from "../movieSimilars"
+import Typography from "@mui/material/Typography";
 
 const TemplateMoviePage = ({ movie, children }) => {
   const { data , error, isLoading, isError } = useQuery(
@@ -38,7 +40,7 @@ const TemplateMoviePage = ({ movie, children }) => {
             justifyContent: "space-around",
           }}>
             <ImageList 
-                cols={6}>
+                cols={14}>
                 
                 {images.map((image) => (
                     <ImageListItem key={image.file_path} cols={1}>
@@ -51,6 +53,11 @@ const TemplateMoviePage = ({ movie, children }) => {
             </ImageList>
           </div>
         </Grid>
+
+        <Typography variant="h5" component="h3" sx={{ padding: "5px", color: "#9c27b0", fontWeight: "bold" }}>
+          Similar Movies
+        </Typography>
+        <MovieSimilars movie={movie} />
 
       </Grid>
     </>

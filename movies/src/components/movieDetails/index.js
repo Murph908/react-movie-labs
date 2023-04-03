@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
-//import MovieCredits from "../movieCredits"
+import MovieSimilars from "../movieSimilars"
 
 
 const root = {
@@ -29,7 +29,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
 
   return (
     <>
-      <Typography variant="h5" component="h3">
+      <Typography variant="h5" component="h3" sx={{ textAlign: "center", color: "#9c27b0", fontWeight: "bold", padding: "5px" }}>
         Overview
       </Typography>
 
@@ -62,6 +62,8 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+
+
       <Fab
         color="secondary"
         variant="extended"
@@ -82,6 +84,6 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
       
 
       </>
-  );
-};
+  );};
+
 export default MovieDetails ;

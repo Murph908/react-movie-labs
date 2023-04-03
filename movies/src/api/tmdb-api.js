@@ -135,8 +135,44 @@ export const getMovieImages = ({ queryKey }) => {
   };
 
   export const getMovieCredits = (id) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  )
+    .then((res) => res.json())
+    .then((json) => {
+      // console.log(json.results);
+      return json.results;
+    });
+};
+
+
+export const getMovieCredits = (args) => {
+  // console.log(args)
+  const [, idPart] = args.queryKey;
+  const { id } = idPart;
+  return fetch(
+    //`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    throw error
+ });
+};*/
+
+
+
+  //credits end https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+
+  //similar start
+
+  export const getMovieSimilars = (id) => {
     return fetch(
-      "https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=" + process.env.REACT_APP_TMDB_KEY + "&language=en-US"
+      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}`
     )
       .then((res) => res.json())
       .then((json) => {
@@ -144,4 +180,5 @@ export const getMovieImages = ({ queryKey }) => {
         return json.results;
       });
   };
-  //credits end https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US*/
+
+  //similar end   https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=<<api_key>>&language=en-US&page=1

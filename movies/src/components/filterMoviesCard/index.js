@@ -3,17 +3,15 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
-import SearchIcon from "@mui/icons-material/Search";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
-
 import { getGenres } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
+
 
 
 const formControl = 
@@ -55,17 +53,16 @@ export default function FilterMoviesCard(props) {
 
 
 
-  return (
+ return (
     <Card 
       sx={{
         maxWidth: 345,
-        backgroundColor: "rgb(204, 204, 0)"
+        backgroundColor: "#9c27b0"
       }} 
       variant="outlined">
       <CardContent>
-        <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="large" />
-          Filter the movies.
+        <Typography variant="h5" component="h1" sx={{ textAlign: "center", color: "white"}}>
+          Search or Filter
         </Typography>
         <TextField
       sx={{...formControl}}
@@ -78,7 +75,6 @@ export default function FilterMoviesCard(props) {
     />
 
         <FormControl sx={{...formControl}}>
-          <InputLabel id="genre-label">Genre</InputLabel>
           <Select
     labelId="genre-label"
     id="genre-select"
@@ -98,17 +94,13 @@ export default function FilterMoviesCard(props) {
         </FormControl>
       </CardContent>
       <CardMedia
-        sx={{ height: 300 }}
+        sx={{ height: 520 }}
         image={img}
         title="Filter"
       />
-      <CardContent>
-        <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="large" />
-          Filter the movies.
-          <br />
-        </Typography>
-      </CardContent>
+      
     </Card>
   );
+
+ 
 }

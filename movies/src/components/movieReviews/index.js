@@ -54,4 +54,8 @@ export default function MovieReviews({ movie }) {
       </Table>
     </TableContainer>
   );
+
+  /*return(
+    console.log(reviews)
+  );*/
 }
